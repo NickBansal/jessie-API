@@ -19,7 +19,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react'],
+  plugins: ['react', 'simple-import-sort'],
   rules: {
     rules: {
       'react/react-in-jsx-scope': 'off',
@@ -34,6 +34,7 @@ module.exports = {
       '@typescript-eslint/no-throw-literal': 0,
       '@typescript-eslint/prefer-optional-chain': 0,
       'multiline-ternary': 0,
+      'simple-import-sort/exports': 'error',
       'simple-import-sort/imports': [
         'error',
         {
