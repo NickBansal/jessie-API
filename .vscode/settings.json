@@ -1,0 +1,21 @@
+{
+  "eslint.enable": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "cSpell.words": [
+    "isbot",
+    "Pipeable",
+    "tailwindcss",
+    "prismjs",
+    "headlessui",
+    "typecheck",
+    "graphcms",
+    "Quickstart",
+    "Hygraph",
+    "CONVERTKIT",
+    "twitterx"
+  ]
+}
