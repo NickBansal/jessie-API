@@ -3,12 +3,12 @@ header {
     margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     padding-bottom: 8px;
 }
 
 header h1 {
-    font-size: 36px;
+    font-size: 26px;
     font-weight: 600;
     margin: 0;
 }
