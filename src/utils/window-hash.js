@@ -1,17 +1,17 @@
 export const windowsHash = () => {
-    const hash = window?.location?.hash || null;
-    let token = window.localStorage.getItem('token');
+  const hash = window?.location?.hash;
+  let hashToken = window?.localStorage?.getItem('token');
 
-    if (!token && hash) {
-      token = hash
-        .substring(1)
-        .split('&')
-        .find((elem) => elem.startsWith('access_token'))
-        .split('=')[1];
+  if (!hashToken && hash) {
+    hashToken = hash
+      .substring(1)
+      .split('&')
+      .find((elem) => elem.startsWith('access_token'))
+      .split('=')[1];
 
-      window.location.hash = '';
-      window.localStorage.setItem('token', token);
-    }
+    window.location.hash = '';
+    window.localStorage.setItem('token', hashToken);
+  }
 
-    return token
-}
+  return hashToken;
+};

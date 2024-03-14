@@ -1,17 +1,15 @@
-  .spotify-link {
-    border: 2px solid black;
-    padding: 16px 32px;
-    margin: 16px;
-    border-radius: 12px;
-    text-decoration: none;
-    background: #007c00;
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
-    width: 215px
-    }
+.spotify-link {
+  border: 2px solid black;
+  padding: 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  background: #007c00;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
 
- .spotify-link:hover {
-    background: #02bd02;
-    transition: 0.3s;
+.spotify-link:hover {
+  background: #02bd02;
+  transition: 0.3s;
 }

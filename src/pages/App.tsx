@@ -1,8 +1,6 @@
 import { type SetStateAction, useEffect, useState } from 'react';
 
-import { ButtonLink } from '../components/buttons/buttons';
 import { Header } from '../components/header/header';
-import { AUTH_ENDPOINT, CLIENT_ID, REDIRECT_URI, RESPONSE_TYPE } from '../constants/spotify';
 import { windowsHash } from '../utils/window-hash';
 
 import './app.css';
@@ -12,7 +10,6 @@ function App() {
 
   useEffect(() => {
     const hashToken = windowsHash();
-
     setToken(hashToken);
   }, []);
 
@@ -21,12 +18,7 @@ function App() {
       <Header />
 
       <section className="App-section">
-        {!token && (
-          <ButtonLink
-            href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
-            btnText="Login to Spotify"
-          />
-        )}
+        {Boolean(token) && <input id="spotify-search-input" />}
       </section>
     </div>
   );
