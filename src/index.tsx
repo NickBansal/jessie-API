@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { AuthContextProvider } from './context/authentication';
+import { ContextProvider } from './context/context';
+import { Layout } from './layout/layout';
 import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 
@@ -10,9 +11,11 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <App />
-    </AuthContextProvider>
+    <ContextProvider>
+      <Layout>
+        <App />
+      </Layout>
+    </ContextProvider>
   </React.StrictMode>
 );
 

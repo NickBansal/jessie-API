@@ -5,17 +5,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "cSpell.words": [
-    "isbot",
-    "Pipeable",
-    "tailwindcss",
-    "prismjs",
-    "headlessui",
-    "typecheck",
-    "graphcms",
-    "Quickstart",
-    "Hygraph",
-    "CONVERTKIT",
-    "twitterx"
-  ]
+  "cSpell.words": ["AUDIOBOOKS"]
 }

@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 
-import { AuthContext } from '../../context/authentication';
+import { Context } from '../../context/context';
 import { Login, Logout } from '../buttons/buttons';
 
 import './header.css';
 
 export const Header = () => {
-  const { token, toggleSignIn } = useContext(AuthContext);
+  const { token, toggleSignIn } = useContext(Context);
 
   return (
     <header>
