@@ -4,6 +4,7 @@ import { useContext, useState } from 'react';
 import axios from 'axios';
 
 import { Header } from '../components/header/header';
+import { Spinner } from '../components/spinner/spinner';
 import { AuthContext } from '../context/authentication';
 
 import './app.css';
@@ -11,9 +12,11 @@ import './app.css';
 function App() {
   const { token } = useContext(AuthContext);
   const [artists, setArtists] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const searchArtists = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoading(true);
     const form = event.currentTarget;
     const formElements = form.elements as typeof form.elements & {
       'spotify-search-input': HTMLInputElement;
@@ -31,6 +34,9 @@ function App() {
 
     setArtists(data?.artists?.items);
     formElements['spotify-search-input'].value = '';
+    setTimeout(() => {
+      setLoading(false);
+    }, 300);
   };
 
   console.log(artists, ' <<<<<<<');
@@ -46,6 +52,7 @@ function App() {
             <input type="text" id="spotify-search-input" />
           </form>
         )}
+        {loading && <Spinner />}
       </section>
     </div>
   );
