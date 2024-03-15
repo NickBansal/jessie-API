@@ -44,12 +44,12 @@ function SearchLayout({ searchType }: SearchTypes) {
   return (
     <div className="App">
       <section className="App-section">
-        {Boolean(token) && (
+        {token ? (
           <form onSubmit={searchParams}>
             <i className="fa-sharp fa-solid fa-magnifying-glass fa-2xl" />
             <input type="text" id="spotify-search-input" disabled={loading} />
           </form>
-        )}
+        ) : <p>Please login to use the search app</p>}
         {loading && <Spinner />}
       </section>
     </div>
