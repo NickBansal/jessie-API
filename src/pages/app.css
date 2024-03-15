@@ -3,21 +3,31 @@
   justify-content: center;
 }
 
-#spotify-search-input {
-  width: 90%;
-  height: 23px;
-  padding: 16px 16px 16px 66px;
-  font-size: 24px;
-  outline: none;
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
   border: 2px solid;
-  background: url("../../public/search.svg");
-  background-position: 16px 10px;
-  background-repeat: no-repeat;
-  background-size: 35px;
+  width: 90%;
+  max-width: 560px
 }
 
-#spotify-search-input:focus {
+form i {
+  padding: 0 16px;
+}
+
+#spotify-search-input {
+  padding: 16px;
+  padding-left: 0;
+  font-size: 24px;
+  outline: none;
+  background: none;
+  border: none;
+  width: 90%;
+}
+
+form:focus {
     box-shadow: 1px 1px 10px rgb(94 170 196);
 }
 

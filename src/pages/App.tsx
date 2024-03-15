@@ -30,9 +30,10 @@ function App() {
     });
 
     setArtists(data?.artists?.items);
+    formElements['spotify-search-input'].value = '';
   };
 
-  console.log(artists, ' <<<<<<');
+  console.log(artists, ' <<<<<<<');
 
   return (
     <div className="App">
@@ -41,6 +42,7 @@ function App() {
       <section className="App-section">
         {Boolean(token) && (
           <form onSubmit={searchArtists}>
+            <i className="fa-sharp fa-solid fa-magnifying-glass fa-2xl" />
             <input type="text" id="spotify-search-input" />
           </form>
         )}
