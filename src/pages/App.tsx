@@ -5,7 +5,7 @@ import './app.css';
 
 function App() {
   // Add a toggle for different selection types
-  return <SearchLayout searchType={Search.SHOWS} />;
+  return <SearchLayout searchType={Search.ARTISTS} />;
 }
 
 export default App;

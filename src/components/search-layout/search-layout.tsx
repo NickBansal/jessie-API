@@ -51,6 +51,9 @@ function SearchLayout({ searchType }: SearchTypes) {
           </form>
         ) : <p>Please login to use the search app</p>}
         {loading && <Spinner />}
+
+        {/* Create components for the results */}
+
       </section>
     </div>
   );

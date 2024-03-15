@@ -23,4 +23,5 @@ You will also see any lint errors in the console.
 - [ ] Show an error message when API call fails
 - [ ] Show and style all results (with css grid)
 - [ ] Create a toggle for all possible categories
+- [ ] Store all results in context
   
