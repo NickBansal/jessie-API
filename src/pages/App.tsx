@@ -4,7 +4,7 @@ import { Search } from '../types/search-types';
 import './app.css';
 
 function App() {
-  return <SearchLayout searchType={Search.AUDIOBOOKS} />;
+  return <SearchLayout searchType={Search.SHOWS} />;
 }
 
 export default App;
