@@ -34,6 +34,7 @@ function App() {
 
     setArtists(data?.artists?.items);
     formElements['spotify-search-input'].value = '';
+
     setTimeout(() => {
       setLoading(false);
     }, 300);
@@ -49,7 +50,7 @@ function App() {
         {Boolean(token) && (
           <form onSubmit={searchArtists}>
             <i className="fa-sharp fa-solid fa-magnifying-glass fa-2xl" />
-            <input type="text" id="spotify-search-input" />
+            <input type="text" id="spotify-search-input" disabled={loading} />
           </form>
         )}
         {loading && <Spinner />}
