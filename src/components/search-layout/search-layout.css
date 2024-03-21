@@ -4,7 +4,7 @@
     flex-direction: column;
 }
 
-.App-section p {
+.warning-message {
     font-size: 25px;
 }
 
@@ -42,3 +42,47 @@ input:-webkit-autofill:active {
 form:focus {
     box-shadow: 1px 1px 10px rgb(94 170 196);
 }
+
+.single-result {
+    border: 1px solid;
+    padding: 3px;
+    margin: 3px;
+    width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height:137px;
+    flex-direction: column-reverse;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+img {
+    width:76px;
+    height:76px;
+}
+
+.single-genre {
+    margin:0;
+    font-size: 15px;
+}
+
+.result-name {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name-genre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+
