@@ -1,8 +1,23 @@
 .search-types {
     display: flex;
-    
+
 }
 
+.choose-type {
+    text-align: center;
+}
 
+.search-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.search-type-dropdown {
+    display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+}
 
 
