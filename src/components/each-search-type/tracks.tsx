@@ -4,9 +4,9 @@ import { type Common } from '../search-layout/search-layout';
 
 interface TrackResult extends Common {
   album: {
-    // images: Array<{
-    //   url: string;
-    // }>;
+    images: Array<{
+      url: string;
+    }>;
   };
   artists: Array<{
     name: string;
@@ -22,7 +22,7 @@ function TrackLayout ({ results }: { results: any[] }) {
             <li
               key={result.id}
               className='single-result'>
-                {/* <div><img src={result.album.images[0].url} /></div> */}
+                <div><img src={result.album.images[0].url} /></div>
                 <div className='name-genre'>
                   <h3 className='result-name'>{result.name}</h3>
                   <h4>Aritist: {result.artists[0].name}</h4>

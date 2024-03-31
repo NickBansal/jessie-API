@@ -25,7 +25,7 @@ function AudiobookLayout ({ results }: { results: any[] }) {
                 <div><img src={result.images[0].url} /></div>
                 <div className='name-genre'>
                   <h3 className='result-name'>{result.name}</h3>
-                  <h4>Popularity: {result.popularity}</h4>
+                  <h4>Total Chapters: {result.total_chapters}</h4>
                 </div>
             </li>
             </>)
