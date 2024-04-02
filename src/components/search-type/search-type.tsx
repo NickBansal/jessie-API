@@ -1,6 +1,14 @@
-import React, { type ChangeEvent } from "react";
+import React, { type ChangeEvent, useContext } from "react";
 
-function SearchTypeDropdown ({ handleTypeChange }: { handleTypeChange: (e: ChangeEvent<HTMLSelectElement>) => void }) {
+import { Context } from "../../context/context";
+
+function SearchTypeDropdown () {
+  const { setResults, setSearchTypes } = useContext(Context);
+
+  const handleTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setResults([]);
+    setSearchTypes(e.target.value);
+  }
   return (
   <div className='search-container'>
     <p className='choose-type'>Please choose the type you want to search for</p>

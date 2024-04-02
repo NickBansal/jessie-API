@@ -2,10 +2,39 @@ import { createContext, useEffect, useState } from 'react';
 
 import { windowsHash } from '../utils/window-hash';
 
-export const Context = createContext({ token: '', toggleSignIn: () => {} });
+interface ContextType {
+
+  token: string,
+  toggleSignIn: () => void,
+  results: any[],
+  setResults: React.Dispatch<React.SetStateAction<any[]>>,
+  searchType: string,
+  setSearchTypes: React.Dispatch<React.SetStateAction<string>>,
+  error: boolean,
+  setError: React.Dispatch<React.SetStateAction<boolean>>,
+  loading: boolean,
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const Context = createContext< ContextType >({
+  token: '',
+  toggleSignIn: () => {},
+  results: [],
+  setResults: () => {},
+  searchType: '',
+  setSearchTypes: () => {},
+  error: false,
+  setError: () => {},
+  loading: false,
+  setLoading: () => {}
+});
 
 export const ContextProvider = ({ children }: { children: React.ReactElement }) => {
   const [token, setToken] = useState('');
+  const [results, setResults] = useState<any[]>([]);
+  const [searchType, setSearchTypes] = useState<any>('');
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const hashToken = windowsHash();
@@ -17,18 +46,18 @@ export const ContextProvider = ({ children }: { children: React.ReactElement }) 
     window.localStorage.removeItem('token');
   };
 
-  return <Context.Provider value={{ token, toggleSignIn }}>{children}</Context.Provider>;
-};
-
-export const AppContext = createContext<{ results: any[], setResults: React.Dispatch<React.SetStateAction<any[]>> }>({ results: [], setResults: () => {} });
-
-export const AppContextProvider = ({ children, results, setResults }: { setResults: any, results: any, children: React.ReactElement }) => {
-  // const [results, setResults] = useState<any[]>([]);
-
   const value = {
+    token,
+    toggleSignIn,
     results,
-    setResults
+    setResults,
+    searchType,
+    setSearchTypes,
+    error,
+    setError,
+    loading,
+    setLoading
   }
 
-   return <AppContext.Provider value={value} > {children} </AppContext.Provider>
-}
+  return <Context.Provider value={ value }>{children}</Context.Provider>;
+};

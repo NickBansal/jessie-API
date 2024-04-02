@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { AppContext } from '../../context/context';
+import { Context } from '../../context/context';
 import { type Common } from '../search-layout/search-layout';
 
 interface AudiobooksResult extends Common {
@@ -16,7 +16,7 @@ interface AudiobooksResult extends Common {
 }
 
 function AudiobookLayout () {
-  const { results }: { results: any[] } = useContext(AppContext);
+  const { results }: { results: any[] } = useContext(Context);
     return (
         results.map((result: AudiobooksResult) => {
             return (

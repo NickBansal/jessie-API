@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 
-import { AppContext } from '../../context/context';
+import { Context } from '../../context/context';
 import { type Common } from '../search-layout/search-layout';
+
 interface ArtistsResult extends Common {
   images: Array<{
     url: string
@@ -9,9 +10,10 @@ interface ArtistsResult extends Common {
 }
 
 function ArtistLayout () {
-    const { results }: { results: any[] } = useContext(AppContext);
+    const { results } = useContext(Context);
     return (
         results.map((result: ArtistsResult) => {
+           console.log('artists is selected');
             return (
             <>
             <li
