@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+import { AppContext } from '../../context/context';
 import { type Common } from '../search-layout/search-layout';
 
 interface AlbumResult extends Common {
@@ -11,7 +12,8 @@ interface AlbumResult extends Common {
   }>;
 }
 
-function AlbumLayout ({ results }: { results: any[] }) {
+function AlbumLayout () {
+  const { results }: { results: any[] } = useContext(AppContext);
     return (
         results.map((result: AlbumResult) => {
             return (

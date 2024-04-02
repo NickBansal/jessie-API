@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+import { AppContext } from '../../context/context';
 import { type Common } from '../search-layout/search-layout';
 
 interface ShowsResult extends Common {
@@ -12,7 +13,8 @@ interface ShowsResult extends Common {
 
 }
 
-function ShowLayout ({ results }: { results: any[] }) {
+function ShowLayout () {
+  const { results }: { results: any[] } = useContext(AppContext);
     return (
         results.map((result: ShowsResult) => {
             return (

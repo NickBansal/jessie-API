@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+import { AppContext } from '../../context/context';
 import { type Common } from '../search-layout/search-layout';
 
 interface TrackResult extends Common {
@@ -13,8 +14,8 @@ interface TrackResult extends Common {
   }>;
 }
 
-function TrackLayout ({ results }: { results: any[] }) {
-  console.log(results, " <<<<<<")
+function TrackLayout () {
+  const { results }: { results: any[] } = useContext(AppContext);
     return (
         results.map((result: TrackResult) => {
             return (

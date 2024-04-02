@@ -4,7 +4,7 @@ import { type ChangeEvent, useContext, useState } from 'react';
 import axios from 'axios';
 
 import { Spinner } from '../../components/spinner/spinner';
-import { Context } from '../../context/context';
+import { AppContext, Context } from '../../context/context';
 import AlbumLayout from '../each-search-type/albums';
 import ArtistLayout from "../each-search-type/artists";
 import AudiobookLayout from '../each-search-type/audiobooks';
@@ -26,7 +26,7 @@ export interface Common {
 
 function SearchLayout() {
   const { token } = useContext(Context);
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<any>([]);
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState('');
   const [error, setError] = useState(false);
@@ -83,10 +83,12 @@ function SearchLayout() {
         ? <>
           <SearchTypeDropdown handleTypeChange={handleTypeChange} />
           <div>
-            <form onSubmit={searchParams}>
+            <AppContext.Provider value={{ setResults, results }}>
+              <form onSubmit={searchParams}>
               <i className="fa-sharp fa-solid fa-magnifying-glass fa-2xl" />
               <input type="text" id="spotify-search-input" disabled={loading} onChange={inputText} value={input} />
             </form>
+            </AppContext.Provider>
           </div>
         </>
          : <p className='warning-message'>Please login to use the search app</p>}
@@ -98,14 +100,18 @@ function SearchLayout() {
         {results &&
          <div className='result-box'>
           <ul className='results'>
-          {searchType === "artists" && <ArtistLayout results={results} />}
-          {searchType === 'albums' && <AlbumLayout results={results} />}
-          {searchType === 'tracks' && <TrackLayout results={results} />}
-          {searchType === 'audiobooks' && <AudiobookLayout results={results} />}
-          {searchType === 'shows' && <ShowLayout results={results} />}
+            <AppContext.Provider value={{ results, setResults }}>
+              {searchType === "artists" && <ArtistLayout />}
+              {searchType === 'albums' && <AlbumLayout />}
+              {searchType === 'tracks' && <TrackLayout />}
+              {searchType === 'audiobooks' && <AudiobookLayout />}
+              {searchType === 'shows' && <ShowLayout />}
+            </AppContext.Provider>
         </ul>
        </div>
        }
+
+       {!results && <p>sorry there is no results</p>}
 
       </section>
     </div>
